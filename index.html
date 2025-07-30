@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asadbek Life World - Personal Journey & Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   <nav style="background-color: #333; padding: 15px;">
+  <ul style="list-style: none; display: flex; justify-content: center; gap: 30px; margin: 0; padding: 0;">
+    <li><a href="#about" style="color: white; text-decoration: none; font-weight: bold;">About</a></li>
+    <li><a href="#experience" style="color: white; text-decoration: none; font-weight: bold;">Experience</a></li>
+    <li><a href="#contact" style="color: white; text-decoration: none; font-weight: bold;">Contact</a></li>
+    <li><a href="#gallery" style="color: white; text-decoration: none; font-weight: bold;">Gallery</a></li>
+  </ul>
+</nav>
+ <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        
+        .gradient-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient-secondary { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .gradient-tertiary { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .gradient-quaternary { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .gradient-gold { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+        .gradient-purple { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .gradient-dark { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); }
+        
+        .hero-bg { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .card-hover { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover { 
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-item { 
+            position: relative; 
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before { 
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            top: 0.5rem; 
+            width: 16px; 
+            height: 16px; 
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%; 
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        }
+        
+        .timeline-item::after { 
+            content: ''; 
+            position: absolute; 
+            left: 7px; 
+            top: 1.5rem; 
+            width: 2px; 
+            height: calc(100% + 1rem); 
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        
+        .timeline-item:last-child::after { display: none; }
+        
+        .skill-bar { 
+            height: 12px; 
+            background: rgba(255,255,255,0.2); 
+            border-radius: 6px; 
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-progress { 
+            height: 100%; 
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            border-radius: 6px; 
+            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .floating-shapes::before,
+        .floating-shapes::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        .floating-shapes::before {
+            width: 200px;
+            height: 200px;
+            top: 20%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+        
+        .floating-shapes::after {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 10%;
+            animation-delay: -10s;
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+        }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .creative-border {
+            position: relative;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #667eea, #764ba2) border-box;
+        }
+        
+        .icon-bounce {
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="nav-glass fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-3xl font-bold text-gradient">Asadbek Life World</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Home</a>
+                    <a href="#who-is-asadbek" class="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Who Is Asadbek</a>
+                    <a href="#about" class="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">About</a>
+                    <a href="#journey" class="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Journey</a>
+                    <a href="#skills" class="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Skills</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition duration-300 font-medium">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-purple-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden glass-effect border-t hidden">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                <a href="#who-is-asadbek" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Who Is Asadbek</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">About</a>
+                <a href="#journey" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Journey</a>
+                <a href="#skills" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Skills</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20 relative">
+        <div class="floating-shapes"></div>
+        <div class="max-w-7xl mx-auto px-6 text-center text-white relative z-10">
+            <div class="mb-12">
+                <div class="w-40 h-40 mx-auto mb-8 glass-effect rounded-full flex items-center justify-center pulse-animation">
+                    <i class="fas fa-user text-7xl text-white"></i>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight">Asadbek Eshkobilov</h1>
+                <div class="text-2xl md:text-3xl mb-8 typewriter">Eshkobilov Asadbek 20.02.2001</div>
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <span class="glass-effect px-6 py-3 rounded-full text-lg font-medium">🏔️ Mountain Village Born</span>
+                    <span class="glass-effect px-6 py-3 rounded-full text-lg font-medium">🎓 Humble Start, Big Dreams</span>
+                    <span class="glass-effect px-6 py-3 rounded-full text-lg font-medium">🌍 Global Dreams</span>
+                </div>
+                <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-4xl mx-auto leading-relaxed">
+                    Welcome to Asadbek Life World — not just a portfolio, but a heartbeat.From dusty fields to digital dreams, this space tells my true story — no filters, no fiction.Everything here is real. This is not a fantasy or exaggeration.This site is about me, my life, and the experiences I've gathered so far — honest and unpolished.You might not believe it at first, but I assure you: it's all true.Each line in my resume reflects real sweat, real struggle, and real growth.If you're curious to know more, you're welcome to explore.This is the story of my life — told with sincerity, driven by hope.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="#who-is-asadbek" class="btn-primary text-white px-10 py-4 rounded-full font-semibold text-lg shadow-lg">
+                        <i class="fas fa-heart mr-2"></i>
+                        Who Is Asadbek, Really?
+                    </a>
+                    <a href="#contact" class="glass-effect text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition duration-300">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Who Is Asadbek Section -->
+    <section id="who-is-asadbek" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 left-10 w-32 h-32 gradient-tertiary rounded-full"></div>
+            <div class="absolute bottom-20 right-10 w-24 h-24 gradient-secondary rounded-full"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold text-gradient mb-6">Who Is Asadbek, Really?</h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-8 rounded-full"></div>
+                <p class="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
+                    Hey there, fellow traveler on the internet.<br>
+                    Welcome to Asadbek Life World — not just a portfolio, but a heartbeat.
+                </p>
+            </div>
+
+            <!-- Personal Introduction -->
+            <div class="mb-20">
+                <div class="creative-border p-12 rounded-3xl gradient-purple">
+                    <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed space-y-8">
+                        <div class="text-center mb-12">
+                            <div class="inline-flex items-center bg-white bg-opacity-50 px-8 py-4 rounded-full mb-6">
+                                <i class="fas fa-map-marker-alt text-2xl text-red-500 mr-4"></i>
+                                <div class="text-left">
+                                    <div class="font-bold text-xl text-gray-800">Born in Qoraobdol Village</div>
+                                    <div class="text-gray-600">Jizzakh Region, Forish District, Uzbekistan</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-xl font-medium text-center mb-8">
+                            I'm Asadbek Eshkobilov, born on <strong>February 20, 2001</strong> in a small village called <strong>Qoraobdol</strong>, tucked away in the mountains of <strong>Jizzakh Region, Forish District</strong>. You won't find my village in a travel guide. But you'll find its spirit in my story.
+                        </p>
+                        
+                        <div class="bg-white bg-opacity-60 p-8 rounded-2xl mb-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">🌄 Where I Come From</h3>
+                            <p class="text-lg mb-6">
+                                Where I come from, life starts at sunrise — not with emails or traffic, but with roosters crowing and goats bleating. My playground? Fields of cotton, orchards full of fruit, rivers where we washed sheep, and skies that taught me how to dream far beyond the hills.
+                            </p>
+                            <p class="text-lg font-bold text-center gradient-primary p-6 rounded-xl text-white">
+                                I wasn't raised in luxury — I was raised in reality.
+                            </p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-8">
+                            <div class="bg-white bg-opacity-60 p-8 rounded-2xl">
+                                <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-users text-2xl text-blue-500 mr-3"></i>
+                                    Family of Seven
+                                </h4>
+                                <p class="text-gray-700">
+                                    We're a family of seven: hard-working, honest, and always together. My parents taught me that dignity is not in how clean your shirt is, but how clean your heart is.
+                                </p>
+                            </div>
+                            
+                            <div class="bg-white bg-opacity-60 p-8 rounded-2xl">
+                                <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-hammer text-2xl text-orange-500 mr-3"></i>
+                                    Built by Hard Work
+                                </h4>
+                                <p class="text-gray-700">
+                                    I grew up climbing 12-meter walnut trees, hauling melons onto trucks, plastering walls, and installing rooftops under burning suns. I learned that your hands can build more than just houses — they can build your future.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-60 p-8 rounded-2xl mb-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">🏆 Academic Excellence</h3>
+                            <p class="text-lg mb-4">
+                                From 2008 to 2019, I studied hard in school — not just to get grades, but to escape limits. I won awards, became the "Best Student of the Year", dominated in law Olympiads, and made a name in intellectual games like "Zakovat".
+                            </p>
+                            <p class="text-lg font-bold text-center">
+                                Why? Because I believed that a kid from the village could outthink the city boys — and I did.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-60 p-8 rounded-2xl mb-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">🎓 University Journey</h3>
+                            <p class="text-lg mb-4">
+                                In 2020, I stepped into a bigger world — the <strong>National University of Uzbekistan</strong> in Tashkent. Studying History opened my eyes, not just to the past, but to my place in the world's future.
+                            </p>
+                            <p class="text-lg font-bold">
+                                I graduated in 2024, not just with a degree, but with a mission: to never stop learning, and never forget my roots.
+                            </p>
+                        </div>
+                        
+                        <div class="gradient-gold p-8 rounded-2xl text-gray-800 mb-8">
+                            <h3 class="text-2xl font-bold mb-6 text-center">💪 My Real Education</h3>
+                            <p class="text-xl font-bold mb-4 text-center">
+                                But honestly? My real degree came from life.
+                            </p>
+                            <p class="text-lg text-center">
+                                From digging foundations, operating embroidery machines, feeding livestock, and helping my family survive without asking for help.
+                            </p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="gradient-primary p-10 rounded-2xl text-white">
+                                <h3 class="text-3xl font-bold mb-6">Who Am I Really?</h3>
+                                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                    <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                                        <p class="text-lg font-bold mb-2">I'm not just a student.</p>
+                                        <p class="opacity-90">I'm a builder, a dreamer, a doer.</p>
+                                    </div>
+                                    <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                                        <p class="text-lg font-bold mb-2">I'm the guy who knows:</p>
+                                        <p class="opacity-90">How to make a cracked wall look like art, how to convince a stubborn goat to follow you, and how to turn struggle into strength.</p>
+                                    </div>
+                                </div>
+                                <div class="text-2xl font-bold mb-4">
+                                    So scroll down, read the stories.
+                                </div>
+                                <p class="text-lg opacity-90 mb-6">
+                                    This site isn't just "content" — it's a tribute to every boy from every village who ever wondered: <em>"Can someone like me really go far?"</em>
+                                </p>
+                                <div class="text-3xl font-bold">
+                                    Answer? Yes. We're built for it. 🚀
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider" style="transform: rotate(180deg);"></div>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 gradient-purple relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 gradient-tertiary rounded-full"></div>
+            <div class="absolute bottom-20 right-10 w-24 h-24 gradient-secondary rounded-full"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold text-gray-800 mb-6">About Me</h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-8 rounded-full"></div>
+                <p class="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    My name is Asadbek Eshkobilov, a resilient, multi-skilled individual born in 2001 in rural Uzbekistan. My life story is not just a sequence of events, but a testament to hard work, adaptability, and relentless commitment to growth, even when opportunities were scarce.
+                </p>
+            </div>
+
+            <!-- Detailed Story Section -->
+            <div class="mb-20">
+                <div class="creative-border p-10 rounded-3xl bg-white">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">My Complete Story</h3>
+                    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
+                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl mb-8 border-l-4 border-blue-500">
+                            <h4 class="text-2xl font-bold text-gray-800 mb-6">🏔️ My Family Background</h4>
+                            <p class="text-lg mb-4">
+                                I come from a large family living in a remote mountain village called Qoraobdol, in the Forish District of Jizzakh Region, Uzbekistan. There are seven of us in total — my parents, three sons, and two daughters. I am the eldest child, and with that comes responsibility.
+                            </p>
+                            <p class="text-lg mb-4">
+                                We have never been a wealthy family — not by modern standards. Yes, we keep goats, cows, and chickens, and we have grapevines and fruit trees. But that isn't a sign of wealth in the village — it's a way of surviving and supporting ourselves. These animals are not luxury; they are part of our daily routine, part of the life we were born into.
+                            </p>
+                            <p class="text-lg mb-4">
+                                We live far from the city. In fact, during drought years, we couldn't find water anywhere and had to dig our own well as a family. In our rural life, everything depends on physical labor. We don't have a big income or modern comforts. We don't own expensive technology, and we don't go on vacations. Instead, we work — every season, every day. We grow food, care for animals, and help each other.
+                            </p>
+                            <p class="text-lg font-medium text-blue-800">
+                                Our life has been simple, even hard at times, but it taught me values that can't be bought — discipline, teamwork, humility, and gratitude. While we are not financially rich, we are rich in experience, effort, and family support. And that kind of wealth has shaped who I am today.
+                            </p>
+                        </div>
+                        
+                        <p class="text-lg">
+                            I completed my secondary education between 2008 and 2019, earning top marks in all subjects and numerous awards that recognized both my academic success and my contributions to school and community life. I was honored as "Best Student of the Year," achieved top places in district-level law Olympiads, and actively participated in team-based intellectual competitions at school. My schooling years were marked by a hunger for knowledge and a deep interest in history.
+                        </p>
+                        
+                        <div class="bg-yellow-50 p-6 rounded-xl border-l-4 border-yellow-400">
+                            <p class="text-lg">
+                                From 2012 to 2019, I was consistently an excellent student. My teachers truly knew my potential, and sometimes I wonder if I needed a school in the city with more opportunities to face real competition and reach my full academic potential.
+                            </p>
+                        </div>
+                        
+                        <p class="text-lg">
+                            This passion led me to study at the National University of Uzbekistan, one of the top 1000 universities globally, where I graduated in 2024 with a bachelor's degree in History. But learning for me has never been limited to the classroom. From a young age, I immersed myself in hands-on labor that shaped my character and broadened my skillset.
+                        </p>
+                        
+                        <p class="text-lg">
+                            I come from a family of 7 people - my parents, 3 sons, and 2 daughters, with me being the eldest child. We are self-employed as family farmers and livestock keepers in our village. I worked extensively in agriculture: harvesting potatoes and fruits with care, tending to grapevines. For watermelon and melon work, I traveled to neighboring districts several times to help relatives during harvest seasons, as these crops don't grow in our village due to lack of rivers. I've spent many seasons working in the fields, adapting to extreme weather conditions while maintaining high productivity.
+                        </p>
+                        
+                        <p class="text-lg">
+                            In addition, I worked in a textile workshop as a computerized embroidery machine operator, learning how to handle complex machinery and maintain high precision under pressure. I also worked in supermarkets, where I was responsible for warehouse operations, unloading goods, arranging products on store shelves, and keeping inventory organized.
+                        </p>
+                        
+                        <p class="text-lg">
+                            In 2024, I joined Yandex as a courier, where I managed time-sensitive deliveries and developed better navigation and communication skills. These jobs weren't glamorous, but they gave me resilience and a deep respect for all forms of work.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-start mb-20">
+                <div class="card-hover">
+                    <div class="gradient-tertiary p-10 rounded-3xl text-white">
+                        <i class="fas fa-graduation-cap text-5xl mb-6 icon-bounce"></i>
+                        <h3 class="text-3xl font-bold mb-6">Educational Excellence</h3>
+                        <p class="mb-6 text-lg opacity-90">
+                            I attended a small but excellent school where dedicated teachers provided quality education. I consistently achieved top grades throughout my academic journey, earning excellent marks every year and every quarter. I actively participated in school events and competitions, often placing 1st or 2nd in annual academic competitions.
+                        </p>
+                        <p class="mb-6 text-lg opacity-90">
+                            Throughout this journey, I have built a solid foundation in technology and basic digital tools. I am proficient in Microsoft Word and PowerPoint, and I use CapCut and other video editing tools to create digital content.
+                        </p>
+                        <p class="text-lg opacity-90">
+                            I am currently self-learning English, having studied it at a local education center earlier. My English level is around A2, but I am actively improving through online resources, podcasts, and practice. Due to financial constraints, I cannot afford paid courses, but I remain committed to learning every day. My English-speaking friends, don't think I don't understand you - I'm getting there! 😊
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card-hover">
+                    <div class="gradient-quaternary p-10 rounded-3xl text-white">
+                        <i class="fas fa-globe text-5xl mb-6 icon-bounce"></i>
+                        <h3 class="text-3xl font-bold mb-6">International Aspirations</h3>
+                        <p class="mb-6 text-lg opacity-90">
+                            I am building a personal website called "Asadbek Life World," where I aim to share my full biography, experience, and creative portfolio. My goal is to work or study internationally, where I can further expand my knowledge, contribute to new communities, and continue developing both personally and professionally.
+                        </p>
+                        <p class="text-lg opacity-90">
+                            I believe in discipline, loyalty, and self-improvement. Despite growing up in a small village and not having access to many resources, I've never stopped dreaming or pushing myself.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="text-center">
+                <div class="glass-effect p-10 rounded-3xl creative-border">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-8">What Drives Me</h3>
+                    <div class="grid md:grid-cols-3 gap-8 mb-10">
+                        <div class="text-center card-hover p-6 rounded-2xl gradient-secondary text-white">
+                            <i class="fas fa-dumbbell text-4xl mb-4 icon-bounce"></i>
+                            <h4 class="font-bold text-xl mb-2">Discipline</h4>
+                            <p class="opacity-90">Consistent daily improvement and self-control</p>
+                        </div>
+                        <div class="text-center card-hover p-6 rounded-2xl gradient-tertiary text-white">
+                            <i class="fas fa-heart text-4xl mb-4 icon-bounce"></i>
+                            <h4 class="font-bold text-xl mb-2">Loyalty</h4>
+                            <p class="opacity-90">Committed to relationships and causes that matter</p>
+                        </div>
+                        <div class="text-center card-hover p-6 rounded-2xl gradient-quaternary text-white">
+                            <i class="fas fa-rocket text-4xl mb-4 icon-bounce"></i>
+                            <h4 class="font-bold text-xl mb-2">Self-Improvement</h4>
+                            <p class="opacity-90">Never stopping to dream and push forward</p>
+                        </div>
+                    </div>
+                    <div class="gradient-primary p-8 rounded-2xl text-white">
+                        <p class="text-lg font-medium">
+                            "I am open to new opportunities worldwide, and I believe I can be an asset to any team that values hard work, honesty, and commitment to excellence. I am not afraid of starting from the bottom — I've done it many times. My dream is to grow in an international environment, bring my practical knowledge into real-world impact, and continue telling my story."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Journey Timeline -->
+    <section id="journey" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 right-20 w-40 h-40 gradient-gold rounded-full"></div>
+            <div class="absolute bottom-10 left-20 w-32 h-32 gradient-tertiary rounded-full"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold text-gradient mb-6">My Journey</h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-8 rounded-full"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Every step has been a building block toward my international aspirations
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <div class="timeline-item card-hover gradient-gold p-8 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <span class="gradient-primary text-white px-4 py-2 rounded-full text-sm font-bold">2001</span>
+                        <h3 class="text-2xl font-bold text-gray-800 ml-6">🏔️ Born in Qoraobdol Village</h3>
+                    </div>
+                    <p class="text-gray-700 text-lg mb-4">Started life in <strong>Qoraobdol Village, Forish District, Jizzakh Region, Uzbekistan</strong> - a small mountain village where I learned the value of hard work and community from an early age.</p>
+                    <div class="bg-white bg-opacity-50 p-4 rounded-xl">
+                        <p class="text-sm text-gray-600 italic">
+                            <strong>📍 Exact Location:</strong> Republic of Uzbekistan, Jizzakh Region, Forish District, Qoraobdol Village - tucked away in the mountains, where life begins at sunrise with roosters crowing and goats bleating.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item card-hover bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="gradient-quaternary text-white px-4 py-2 rounded-full text-sm font-bold">2008-2019</span>
+                        <h3 class="text-2xl font-bold text-gray-800 ml-6">Secondary Education Excellence</h3>
+                    </div>
+                    <p class="text-gray-700 text-lg">Achieved top marks in all subjects, "Best Student of the Year" award, top places in district law Olympiads, and active participation in "Zakovat" intellectual competitions.</p>
+                </div>
+
+                <div class="timeline-item card-hover gradient-secondary p-8 rounded-2xl text-white">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-white text-gray-800 px-4 py-2 rounded-full text-sm font-bold">2018</span>
+                        <h3 class="text-2xl font-bold ml-6">🏠 Complete Home Reconstruction - A Memorable Year</h3>
+                    </div>
+                    <p class="mb-6 text-lg opacity-90">A transformative year when our 1970s Soviet-era family home became uninhabitable after 40+ years. Foundation had sunk, walls absorbed moisture, roof leaked constantly. We made the decision: demolish everything and rebuild from scratch.</p>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl mb-6">
+                        <h4 class="font-bold text-xl mb-4">🔨 Complete Demolition & Reconstruction Process</h4>
+                        <div class="space-y-4 text-sm opacity-90">
+                            <div>
+                                <strong>• Active Demolition Leadership:</strong> As eldest son, led every stage from roof dismantling to brick wall teardown with family and neighbors
+                            </div>
+                            <div>
+                                <strong>• Foundation Work:</strong> Participated in ground clearing, leveling, and concrete foundation pouring with skilled workers
+                            </div>
+                            <div>
+                                <strong>• Traditional Building Methods:</strong> Used local materials - clay, straw, mud, bricks, reed instead of modern urban materials like iron rebar
+                            </div>
+                            <div>
+                                <strong>• Hands-on Bricklaying:</strong> Learned proper brick lifting, clay mortar preparation, wall straightening, measuring, leveling, and corner setting
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl mb-6">
+                        <h4 class="font-bold text-xl mb-4">🪵 Roof Construction & Traditional Methods</h4>
+                        <div class="space-y-3 text-sm opacity-90">
+                            <div>• <strong>Wooden Frame Assembly:</strong> Measured, cut, and joined wooden beams to form main roof structure</div>
+                            <div>• <strong>Traditional Roofing:</strong> Nailed wide wooden planks, placed reed bundles, applied two layers of clay mixture</div>
+                            <div>• <strong>Timeline:</strong> Roof construction began in September, completed in 15-20 days using village traditional methods</div>
+                            <div>• <strong>Phased Completion:</strong> Initial 3 rooms completed in 2018, remaining rooms renovated in 2019, 2023, 2024 (ongoing)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl mb-6">
+                        <h4 class="font-bold text-xl mb-4">💡 Electrical & Technical Skills Development</h4>
+                        <div class="space-y-3 text-sm opacity-90">
+                            <div>• <strong>220V Home Electrical Systems:</strong> Learned installation of outlets, switches, lights, and circuit breakers</div>
+                            <div>• <strong>Independent Learning:</strong> Worked with electricians, then started doing installations independently</div>
+                            <div>• <strong>TV Antenna Setup:</strong> Mastered antenna installation and cable connections</div>
+                            <div>• <strong>Community Service:</strong> Helped neighbors with their electrical installations</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                        <h4 class="font-bold text-xl mb-4">🛠 Complete Skill Set Mastered</h4>
+                        <div class="grid grid-cols-2 gap-3 text-sm opacity-90">
+                            <div>• Electrical installation & 220V systems</div>
+                            <div>• Wooden frame construction & assembly</div>
+                            <div>• Measuring, cutting & placing wood planks</div>
+                            <div>• Wall smoothing & plastering techniques</div>
+                            <div>• Interior/exterior painting & whitewashing</div>
+                            <div>• Door & window installation & sealing</div>
+                            <div>• Traditional clay & reed roofing methods</div>
+                            <div>• Foundation work & concrete pouring</div>
+                        </div>
+                        <div class="mt-4 p-4 bg-white bg-opacity-30 rounded-lg">
+                            <p class="text-sm italic">
+                                <strong>Personal Significance:</strong> This wasn't just construction work - it was a year of profound learning, family collaboration, and community support. Every skill gained through hands-on practice, every challenge overcome with determination. This project shaped my practical abilities and work ethic that I carry forward today.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item card-hover gradient-tertiary p-8 rounded-2xl text-white">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-white text-gray-800 px-4 py-2 rounded-full text-sm font-bold">2014-2025</span>
+                        <h3 class="text-2xl font-bold ml-6">🌾 Extensive Hands-On Experience Since Early Adolescence</h3>
+                    </div>
+                    <p class="mb-6 text-xl font-bold opacity-95">Traditional Rural Life, Real Labor — Not a Hobby, a Way of Life</p>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl mb-6">
+                        <p class="text-lg opacity-90 mb-4">
+                            Growing up in a remote village about 100 km from the nearest city, I didn't spend my childhood visiting zoos or museums. My zoo was the livestock pen. My "museum" was a walnut tree — 12 meters high, and I had to climb it like an acrobat. 🎪 While other kids were feeding pigeons in the park, I was feeding sheep and goats — rain, snow, or blazing heat, it didn't matter. ☀️❄️🌧️ Responsibility doesn't take a holiday when you grow up in a family like mine.
+                        </p>
+                        <p class="text-lg opacity-90">
+                            From the age of 13 (maybe even earlier, but that's as far back as I clearly remember), I began helping my family with all kinds of tasks. This wasn't a one-man show — it was a family effort, but since I was the eldest child, I carried a heavier load. 💪 We weren't farmers in the commercial sense — we were traditional family caretakers, practicing age-old ways of animal husbandry and agriculture just to survive and stay rooted. 🌱
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl mb-6">
+                        <h4 class="font-bold text-xl mb-4">🐑 Animal Husbandry Experience — Family-Led, Survival-Driven</h4>
+                        <ul class="text-sm opacity-90 space-y-2 mb-4">
+                            <li>• Daily care of sheep, goats, and cows — regardless of season or weather 🌦️</li>
+                            <li>• Grazing animals across wide fields in sun, wind, rain, and snow ❄️☀️</li>
+                            <li>• Cleaning barns and sheds, collecting and preparing feed and hay 🏚️</li>
+                            <li>• Shearing wool from sheep and goats during seasonal cycles ✂️</li>
+                            <li>• Bathing animals in summer to prevent disease and ticks 🛁</li>
+                            <li>• Climbing tall trees (10–12 meters high!) to harvest walnuts and fruit 🌳</li>
+                        </ul>
+                        <div class="bg-white bg-opacity-30 p-4 rounded-lg mb-4">
+                            <p class="text-sm opacity-90">
+                                <strong>🐐 Mixing herds:</strong> Goats and sheep grazed together — but don't be fooled, goats are a whole different story. They're energetic, mischievous, and curious about everything that moves (or doesn't). It's like herding comedians on four legs. 😄 We raised our animals not as part of a farm business but as a way of life, inherited from our ancestors. Goats especially required patience — they're hyper, noisy, and smart enough to test your nerves daily. 🤯 Sheep were calmer, but keeping them healthy through harsh Uzbek winters meant constant attention and tough skin. 🧤
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl mb-6">
+                        <h4 class="font-bold text-xl mb-4">🌾 Family Farming and Vineyard Work — The Hands That Feed Us</h4>
+                        <ul class="text-sm opacity-90 space-y-2 mb-4">
+                            <li>• Seasonal work in vineyards, fruit orchards, and fields 🍇🍎</li>
+                            <li>• Picking apricots, apples, grapes, potatoes in our village 🥔🍇</li>
+                            <li>• Traveled to neighboring districts to help relatives with watermelon and melon harvests 🍈🚛</li>
+                            <li>• Climbing trees to pick fruit from places ladders feared to go 🪜</li>
+                            <li>• Helping with manual irrigation, composting, and pest control 💧</li>
+                            <li>• Hauling crops into trucks, sometimes 40–50 kg bags on my back 🚛</li>
+                        </ul>
+                        <p class="text-sm opacity-90 italic">
+                            This wasn't a summer internship. This was daily life. And while some kids went to the zoo to look at animals, I was out there being responsible for them. Not watching from a distance, but up close and personal — shearing their wool, feeding them before I ate myself, and making sure they were safe and healthy. 🦆🐑
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                        <h4 class="font-bold text-xl mb-4">🏛️ Cultural Context</h4>
+                        <p class="text-sm opacity-90">
+                            In Uzbek villages, this kind of life isn't called child labor — it's called growing up. 👦➡️👨 Boys learn hard work through doing, not theory. Our elders don't hand us life on a plate; they hand us a shovel, a rope, or a bale of hay and say, "Let's go." 🛠️ It's how we become men: through sweat, responsibility, and real-life experience.
+                        </p>
+                        <p class="text-sm opacity-90 mt-3 font-bold">
+                            And me? I wasn't just helping — I was learning. Building the kind of grit that no school can teach. 💎✨
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item card-hover bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="gradient-primary text-white px-4 py-2 rounded-full text-sm font-bold">2020-2024</span>
+                        <h3 class="text-2xl font-bold text-gray-800 ml-6">🎓 University Graduate – Bachelor's Degree in History</h3>
+                    </div>
+                    <p class="text-gray-700 text-lg mb-4"><strong>National University of Uzbekistan (Top 1000 globally)</strong> - Tashkent, Uzbekistan</p>
+                    <p class="text-gray-700 text-lg mb-4">During 2020-2024, I lived in Tashkent, the capital city of Uzbekistan, experiencing urban life while pursuing my education. Completed undergraduate studies in History with rich field experiences across Tashkent's renowned historical sites and museums. Academic journey included studying political, cultural, and social history of Central Asia and the world, while also working various jobs to support myself in the city environment.</p>
+                    <div class="gradient-primary p-6 rounded-xl text-white">
+                        <h4 class="font-bold text-lg mb-3">Key Highlights:</h4>
+                        <ul class="text-sm opacity-90 space-y-2">
+                            <li>• Lived in Tashkent city environment (2020-2024) - experiencing urban life and city culture</li>
+                            <li>• Educational visits to museums and historic landmarks across Tashkent</li>
+                            <li>• Two-month pedagogical internship teaching history at secondary school</li>
+                            <li>• Independent research, presentations, and collaborative academic projects</li>
+                            <li>• Developed classroom dynamics, lesson planning, and student engagement skills</li>
+                            <li>• Balanced university studies with various work experiences in the capital city</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item card-hover gradient-gold p-8 rounded-2xl text-gray-800">
+                    <div class="flex items-center mb-4">
+                        <span class="gradient-primary text-white px-4 py-2 rounded-full text-sm font-bold">2023</span>
+                        <h3 class="text-2xl font-bold ml-6">🌟 Pivotal Year of Growth & Challenges</h3>
+                    </div>
+                    <p class="mb-4 text-lg">A transformative year filled with diverse experiences, personal growth, and overcoming significant challenges while pursuing education and independence.</p>
+                    
+                    <div class="bg-white bg-opacity-50 p-6 rounded-xl mb-4">
+                        <h4 class="font-bold text-lg mb-3">🎓 Academic Excellence & Teaching Experience (2023-2024):</h4>
+                        <ul class="text-sm space-y-2">
+                            <li>• <strong>Final university years (2023-2024):</strong> Maintained excellent academic performance while managing multiple work responsibilities</li>
+                            <li>• <strong>Pedagogical internship (2024):</strong> Two-month teaching experience at secondary school, developing classroom management and lesson planning skills</li>
+                            <li>• <strong>Student engagement:</strong> Successfully taught history to secondary students, adapting teaching methods to different learning styles</li>
+                            <li>• <strong>Educational visits (2023-2024):</strong> Participated in academic field trips to Tashkent's museums and historical landmarks throughout final university years</li>
+                            <li>• <strong>University completion (2024):</strong> Successfully graduated with Bachelor's degree in History with excellent academic performance</li>
+                            <li>• <strong>Graduation achievement (2024):</strong> Completed degree while working as Yandex courier, demonstrating exceptional time management</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-50 p-6 rounded-xl mb-4">
+                        <h4 class="font-bold text-lg mb-3">💼 Professional Work Experience:</h4>
+                        <ul class="text-sm space-y-2">
+                            <li>• <strong>Textile workshop:</strong> Continued operating computerized embroidery machines (Tajima, Brother, Silver brands)</li>
+                            <li>• <strong>High productivity:</strong> Consistently applied 500-800 emblems per day depending on complexity</li>
+                            <li>• <strong>Quality control:</strong> Maintained precision and attention to detail during 10-12 hour shifts</li>
+                            <li>• <strong>Technical skills:</strong> Mastered threading, framing, troubleshooting, and machine maintenance</li>
+                            <li>• <strong>Supermarket work:</strong> Warehouse operations, inventory management, and customer service</li>
+                            <li>• <strong>Agricultural work:</strong> Seasonal fruit harvesting, vineyard maintenance, and livestock care</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-50 p-6 rounded-xl mb-4">
+                        <h4 class="font-bold text-lg mb-3">🏠 Family Responsibilities & Personal Growth:</h4>
+                        <ul class="text-sm space-y-2">
+                            <li>• <strong>Eldest son duties:</strong> Supported family as the oldest of 5 children in rural farming community</li>
+                            <li>• <strong>Animal husbandry:</strong> Daily care of sheep, goats, and cows in all weather conditions</li>
+                            <li>• <strong>Seasonal tasks:</strong> Wool shearing, animal bathing, feed preparation, and grazing management</li>
+                            <li>• <strong>Agricultural support:</strong> Assisted with crop harvesting, vineyard work, and fruit collection</li>
+                            <li>• <strong>Tree climbing expertise:</strong> Harvested walnuts and fruits from 10-12 meter high trees</li>
+                            <li>• <strong>Weather resilience:</strong> Worked outdoors through rain, snow, and extreme summer heat</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-50 p-6 rounded-xl mb-4">
+                        <h4 class="font-bold text-lg mb-3">🌍 Digital Skills & Community Contribution:</h4>
+                        <ul class="text-sm space-y-2">
+                            <li>• <strong>Google Maps Local Expert:</strong> Achieved 200,000+ views on photos and reviews</li>
+                            <li>• <strong>Community service:</strong> Added new locations and helped local businesses gain online visibility</li>
+                            <li>• <strong>Digital content creation:</strong> Used CapCut and other tools for video editing and content creation</li>
+                            <li>• <strong>Microsoft Office proficiency:</strong> Advanced skills in Word and PowerPoint for academic and professional use</li>
+                            <li>• <strong>English language learning:</strong> Self-study through online resources, podcasts, and practice</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-50 p-6 rounded-xl">
+                        <h4 class="font-bold text-lg mb-3">💪 Personal Development & Life Philosophy:</h4>
+                        <ul class="text-sm space-y-2">
+                            <li>• <strong>Cultural values:</strong> Embraced traditional Uzbek values of hard work, respect, and family responsibility</li>
+                            <li>• <strong>Character building:</strong> Developed resilience, discipline, and adaptability through diverse work experiences</li>
+                            <li>• <strong>Financial independence:</strong> Managed personal expenses and contributed to family income</li>
+                            <li>• <strong>Time management:</strong> Successfully balanced university studies with multiple work commitments</li>
+                            <li>• <strong>Future planning:</strong> Began developing international aspirations and preparing for global opportunities</li>
+                            <li>• <strong>Continuous learning:</strong> Maintained commitment to self-improvement despite financial constraints</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item card-hover gradient-tertiary p-8 rounded-2xl text-white">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-white text-gray-800 px-4 py-2 rounded-full text-sm font-bold">2024</span>
+                        <h3 class="text-2xl font-bold ml-6">🚴 Yandex Courier Experience & University Graduation</h3>
+                    </div>
+                    <p class="mb-4 text-lg opacity-90">Graduated with Bachelor's degree in History while working as Yandex courier, cycling across all of Tashkent to deliver meals and managing time-sensitive deliveries while developing navigation and communication skills in logistics. Explored the entire city day and night while balancing university studies.</p>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl mb-4">
+                        <h4 class="font-bold text-lg mb-3">🎓 University Graduation Achievements:</h4>
+                        <ul class="text-sm opacity-90 space-y-2">
+                            <li>• <strong>Bachelor's Degree in History:</strong> Successfully completed undergraduate studies at National University of Uzbekistan</li>
+                            <li>• <strong>City living experience:</strong> Lived in Tashkent, experiencing urban life and city culture (2020-2024)</li>
+                            <li>• <strong>Academic excellence:</strong> Maintained high academic standards throughout final year</li>
+                            <li>• <strong>Thesis completion:</strong> Completed final research project and thesis defense</li>
+                            <li>• <strong>Pedagogical certification:</strong> Earned teaching qualification through internship program</li>
+                            <li>• <strong>Historical expertise:</strong> Specialized knowledge in Central Asian and world history</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                        <h4 class="font-bold text-lg mb-3">🚴 Full Yandex Courier Experience Details:</h4>
+                        <ul class="text-sm opacity-90 space-y-2">
+                            <li>• <strong>Food delivery by bicycle:</strong> Delivered meals across Tashkent's entire 330+ square kilometer area</li>
+                            <li>• <strong>Explored all of Tashkent:</strong> Cycled through every district and neighborhood, day and night shifts</li>
+                            <li>• <strong>City coverage:</strong> Tashkent isn't small - covered over 330 km² of urban area on bicycle</li>
+                            <li>• <strong>Balanced work & studies:</strong> Worked 5-8 hours daily while completing university degree</li>
+                            <li>• <strong>Complete independence:</strong> Managed own housing rental and all living expenses without family support</li>
+                            <li>• <strong>Realistic earnings:</strong> Understood that courier pay isn't high, but gained valuable experience</li>
+                            <li>• <strong>Self-reliance:</strong> Made all efforts independently to support studies and living costs</li>
+                            <li>• <strong>Navigation skills:</strong> Developed expert knowledge of Tashkent's street layout and traffic patterns</li>
+                            <li>• <strong>Customer service:</strong> Maintained professional communication with customers and restaurants</li>
+                            <li>• <strong>Time management:</strong> Optimized delivery routes and managed multiple orders efficiently</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item card-hover gradient-primary p-8 rounded-2xl text-white">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-white text-gray-800 px-4 py-2 rounded-full text-sm font-bold">Present</span>
+                        <h3 class="text-2xl font-bold ml-6">Building "Asadbek Life World"</h3>
+                    </div>
+                    <p class="text-lg opacity-90">Developing my personal website and brand while preparing for international opportunities. Continuously learning English and expanding my computer skills. Living my life and waiting for my opportunities while continuing my ongoing work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider" style="transform: rotate(180deg);"></div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 gradient-purple relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-32 left-16 w-28 h-28 gradient-secondary rounded-full"></div>
+            <div class="absolute bottom-32 right-16 w-36 h-36 gradient-quaternary rounded-full"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold text-gray-800 mb-6">Skills & Expertise</h2>
+                <div class="w-24 h-1 gradient-primary mx-auto mb-8 rounded-full"></div>
+                <p class="text-xl text-gray-700 max-w-4xl mx-auto">
+                    A diverse skill set built through education, work experience, and continuous self-improvement
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-8">Technical Skills</h3>
+                    <div class="space-y-8">
+                        <div class="card-hover bg-white p-6 rounded-2xl shadow-lg">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-bold text-gray-800 text-lg">Computerized Embroidery Machine Operation</span>
+                                <span class="gradient-primary text-white px-3 py-1 rounded-full text-sm font-bold">Master Level</span>
+                            </div>
+                            <div class="skill-bar mb-3">
+                                <div class="skill-progress" style="width: 98%"></div>
+                            </div>
+                            <p class="text-gray-600">3+ years mastering Tajima, Brother & Silver machines - threading like a surgeon, troubleshooting like a detective! 🧵 500-800 emblems daily with zero quality complaints.</p>
+                        </div>
+                        
+                        <div class="card-hover bg-white p-6 rounded-2xl shadow-lg">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-bold text-gray-800 text-lg">Microsoft Office Suite & Digital Tools</span>
+                                <span class="gradient-secondary text-white px-3 py-1 rounded-full text-sm font-bold">Expert</span>
+                            </div>
+                            <div class="skill-bar mb-3">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                            <p class="text-gray-600">Word wizard 📝, PowerPoint pro 🎨, plus CapCut video editing & various computer programs as a hobby - always exploring new digital tools! 💻</p>
+                        </div>
+                        
+                        <div class="card-hover bg-white p-6 rounded-2xl shadow-lg">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-bold text-gray-800 text-lg">Google Maps Local Expert</span>
+                                <span class="gradient-tertiary text-white px-3 py-1 rounded-full text-sm font-bold">Legend Status</span>
+                            </div>
+                            <div class="skill-bar mb-3">
+                                <div class="skill-progress" style="width: 99%"></div>
+                            </div>
+                            <p class="text-gray-600">200,000+ views achieved! 🗺️ I'm basically the unofficial tour guide of my region - adding locations, snapping perfect photos, writing helpful reviews. Local businesses love me! 📸✨</p>
+                        </div>
+                        
+                        <div class="card-hover bg-white p-6 rounded-2xl shadow-lg">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-bold text-gray-800 text-lg">Construction & Electrical Work</span>
+                                <span class="gradient-quaternary text-white px-3 py-1 rounded-full text-sm font-bold">Master Builder</span>
+                            </div>
+                            <div class="skill-bar mb-3">
+                                <div class="skill-progress" style="width: 96%"></div>
+                            </div>
+                            <p class="text-gray-600">From zero to hero! 🏠 Built our entire family home from scratch - foundation, walls, roof, 220V electrical systems. I can wire a house and fix your neighbor's too! ⚡🔨</p>
+                        </div>
+                        
+                        <div class="card-hover bg-white p-6 rounded-2xl shadow-lg">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-bold text-gray-800 text-lg">English Language</span>
+                                <span class="gradient-gold text-white px-3 py-1 rounded-full text-sm font-bold">A2 Level</span>
+                            </div>
+                            <div class="skill-bar mb-3">
+                                <div class="skill-progress" style="width: 55%"></div>
+                            </div>
+                            <p class="text-gray-600">Learning step by step through podcasts and online resources 🎧 - not perfect yet, but getting there with daily practice! 📚 Rome wasn't built in a day, right? 😊</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-8">Professional Experience</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="card-hover gradient-quaternary p-6 rounded-2xl text-center text-white">
+                            <i class="fas fa-seedling text-4xl mb-4 icon-bounce"></i>
+                            <h4 class="font-bold text-lg mb-2">Agriculture</h4>
+                            <p class="text-sm opacity-90">Crop harvesting & farming</p>
+                        </div>
+                        
+                        <div class="card-hover gradient-secondary p-6 rounded-2xl text-center text-white">
+                            <i class="fas fa-hard-hat text-4xl mb-4 icon-bounce"></i>
+                            <h4 class="font-bold text-lg mb-2">Construction</h4>
+                            <p class="text-sm opacity-90">Building & manual labor</p>
+                        </div>
+                        
+                        <div class="card-hover gradient-tertiary p-6 rounded-2xl text-center text-white">
+                            <i class="fas fa-store text-4xl mb-4 icon-bounce"></i>
+                            <h4 class="font-bold text-lg mb-2">Retail</h4>
+                            <p class="text-sm opacity-90">Customer service & inventory</p>
+                        </div>
+                        
+                        <div class="card-hover gradient-primary p-6 rounded-2xl text-center text-white">
+                            <i class="fas fa-shipping-fast text-4xl mb-4 icon-bounce"></i>
+                            <h4 class="font-bold text-lg mb-2">Logistics</h4>
+                            <p class="text-sm opacity-90">Yandex courier services</p>
+                        </div>
+                        
+                        <div class="card-hover gradient-gold p-6 rounded-2xl text-center text-gray-800">
+                            <i class="fas fa-cut text-4xl mb-4 icon-bounce"></i>
+                            <h4 class="font-bold text-lg mb-2">Manufacturing</h4>
+                            <p class="text-sm">Computerized embroidery specialist</p>
+                        </div>
+                        
+                        <div class="card-hover bg-white p-6 rounded-2xl text-center text-gray-800 shadow-lg">
+                            <i class="fas fa-graduation-cap text-4xl mb-4 icon-bounce"></i>
+                            <h4 class="font-bold text-lg mb-2">Education</h4>
+                            <p class="text-sm">History & research</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialized Experience Sections -->
+            <div class="mt-24 space-y-16">
+                <!-- Animal Husbandry -->
+                <div class="card-hover gradient-quaternary p-10 rounded-3xl text-white">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold mb-4">🐑 Animal Husbandry Experience</h3>
+                        <p class="text-lg opacity-90">Deep experience in livestock care and management since youth</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white bg-opacity-20 p-6 rounded-2xl">
+                            <h4 class="font-bold text-xl mb-4 flex items-center">
+                                <i class="fas fa-cloud-rain mr-3"></i>
+                                Daily Care in All Weather
+                            </h4>
+                            <ul class="space-y-2 text-sm opacity-90">
+                                <li>• Grazing sheep through rain, snow, and summer heat</li>
+                                <li>• Daily walks regardless of weather conditions</li>
+                                <li>• Maintaining consistent care schedules</li>
+                                <li>• Adapting to extreme weather while ensuring animal welfare</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-20 p-6 rounded-2xl">
+                            <h4 class="font-bold text-xl mb-4 flex items-center">
+                                <i class="fas fa-cut mr-3"></i>
+                                Seasonal Tasks
+                            </h4>
+                            <ul class="space-y-2 text-sm opacity-90">
+                                <li>• Proper shearing of sheep and goats for wool</li>
+                                <li>• Timing shearing with appropriate seasons</li>
+                                <li>• Wool processing and preparation</li>
+                                <li>• Seasonal health and care adjustments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Construction Experience -->
+                <div class="card-hover gradient-secondary p-10 rounded-3xl text-white">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold mb-4">🏠 Home Construction Experience</h3>
+                        <p class="text-lg opacity-90">Complete renovation project from foundation to finish</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white bg-opacity-20 p-6 rounded-2xl">
+                            <h4 class="font-bold text-xl mb-4 flex items-center">
+                                <i class="fas fa-bolt mr-3"></i>
+                                Electrical Installation
+                            </h4>
+                            <p class="text-sm opacity-90">Complete house wiring, installing sockets, switches, wall boxes, and connecting 220V lighting systems</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-20 p-6 rounded-2xl">
+                            <h4 class="font-bold text-xl mb-4 flex items-center">
+                                <i class="fas fa-layer-group mr-3"></i>
+                                Bricklaying & Roofing
+                            </h4>
+                            <p class="text-sm opacity-90">Raising walls with structural balance, installing beams, laying reeds, applying clay, and fixing metal panels</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Embroidery Experience -->
+                <div class="card-hover gradient-gold p-10 rounded-3xl text-gray-800">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold mb-4">🧵 Computerized Embroidery Machine Operator</h3>
+                        <p class="text-lg">Skilled in Focus, Accuracy, and Technical Handling</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-50 p-8 rounded-2xl">
+                        <h4 class="text-xl font-bold mb-6 text-center">Key Highlights</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <ul class="space-y-3 text-sm">
+                                <li>• Operated top embroidery machines: <strong>Tajima, Brother, and Silver</strong></li>
+                                <li>• Applied <strong>500–800 emblems per day</strong> depending on size and complexity</li>
+                                <li>• Maintained full focus during <strong>10–12 hour shifts</strong></li>
+                            </ul>
+                            <ul class="space-y-3 text-sm">
+                                <li>• Gained hands-on experience in threading, framing, troubleshooting, and quality control</li>
+                                <li>• Balanced both technical tasks and artistic precision</li>
+                                <li>• Worked while maintaining full-time university studies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center">
+                <div class="gradient-primary p-10 rounded-3xl text-white">
+                    <h3 class="text-3xl font-bold mb-6">Continuous Learning</h3>
+                    <p class="text-lg mb-8 opacity-90">
+                        Despite financial constraints preventing paid courses, I remain committed to daily learning and self-improvement through:
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="bg-white bg-opacity-20 px-6 py-3 rounded-full font-medium">Daily English Practice (A2 Level)</span>
+                        <span class="bg-white bg-opacity-20 px-6 py-3 rounded-full font-medium">Online Resources & Podcasts</span>
+                        <span class="bg-white bg-opacity-20 px-6 py-3 rounded-full font-medium">Digital Content Creation</span>
+                        <span class="bg-white bg-opacity-20 px-6 py-3 rounded-full font-medium">Technology Skills</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 hero-bg relative overflow-hidden">
+        <div class="floating-shapes"></div>
+        <div class="max-w-6xl mx-auto px-6 text-center text-white relative z-10">
+            <h2 class="text-5xl font-bold mb-6">Let's Connect</h2>
+            <div class="w-24 h-1 bg-white mx-auto mb-8 rounded-full"></div>
+            <p class="text-xl mb-12 opacity-90 max-w-4xl mx-auto">
+                I am a historian by education, a gardener and embroidery craftsman by profession, builder by necessity, courier by experience, and learner by nature. Ready to contribute in international environments - I'm not afraid to start from the bottom.
+            </p>
+            
+            <div class="glass-effect rounded-3xl p-10 mb-12">
+                <h3 class="text-3xl font-bold mb-8">Get In Touch</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="mailto:asadeshkobilov@gmail.com" class="card-hover glass-effect p-6 rounded-2xl flex items-center justify-center hover:bg-white hover:bg-opacity-20 transition duration-300">
+                        <i class="fas fa-envelope text-3xl mr-4"></i>
+                        <div class="text-left">
+                            <div class="font-bold text-lg">Email</div>
+                            <div class="opacity-80">asadeshkobilov@gmail.com</div>
+                        </div>
+                    </a>
+                    
+                    <a href="tel:+998331512501" class="card-hover glass-effect p-6 rounded-2xl flex items-center justify-center hover:bg-white hover:bg-opacity-20 transition duration-300">
+                        <i class="fas fa-phone text-3xl mr-4"></i>
+                        <div class="text-left">
+                            <div class="font-bold text-lg">Phone</div>
+                            <div class="opacity-80">+998 33 151 2501</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://t.me/bek_5d" target="_blank" class="card-hover glass-effect p-6 rounded-2xl flex items-center justify-center hover:bg-white hover:bg-opacity-20 transition duration-300">
+                        <i class="fab fa-telegram text-3xl mr-4"></i>
+                        <div class="text-left">
+                            <div class="font-bold text-lg">Telegram</div>
+                            <div class="opacity-80">@bek_5d</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://twitter.com/asadeshkobilov" target="_blank" class="card-hover glass-effect p-6 rounded-2xl flex items-center justify-center hover:bg-white hover:bg-opacity-20 transition duration-300">
+                        <i class="fab fa-twitter text-3xl mr-4"></i>
+                        <div class="text-left">
+                            <div class="font-bold text-lg">Twitter</div>
+                            <div class="opacity-80">@asadeshkobilov</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <div class="glass-effect p-8 rounded-2xl inline-block">
+                    <p class="text-2xl mb-4 font-bold">🎯 Goal: Study or work internationally</p>
+                    <p class="opacity-90 text-lg">Open to opportunities • Ready to contribute • Committed to excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-dark py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-white">
+            <div class="mb-8">
+                <h3 class="text-3xl font-bold mb-2">Asadbek Life World</h3>
+                <p class="text-gray-300 text-lg">From Qoraobdol Village to the World • Sharing my journey • Building my future</p>
+            </div>
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="mailto:asadeshkobilov@gmail.com" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+                <a href="https://t.me/bek_5d" target="_blank" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110">
+                    <i class="fab fa-telegram text-2xl"></i>
+                </a>
+                <a href="https://twitter.com/asadeshkobilov" target="_blank" class="text-gray-300 hover:text-white transition duration-300 transform hover:scale-110">
+                    <i class="fab fa-twitter text-2xl"></i>
+                </a>
+            </div>
+            <div class="border-t border-gray-600 pt-6">
+                <p class="text-gray-400">
+                    © 2025 Asadbek Eshkobilov. Built with passion and purpose from the mountains of Uzbekistan.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Animate skill bars on scroll
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-lg');
+                nav.classList.remove('nav-glass');
+                nav.classList.add('bg-white');
+            } else {
+                nav.classList.remove('shadow-lg', 'bg-white');
+                nav.classList.add('nav-glass');
+            }
+        });
+
+        // Parallax effect for floating shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.floating-shapes');
+            
+            parallax.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add entrance animations
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Apply animation to cards
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            animateOnScroll.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9674d0ecc24ca106',t:'MTc1Mzg3ODA4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
